@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Parthib's Temperature Converter</title>
+  </head>
+  <body>
+    <style>
+      body{
+        background-color:aqua;
+      }
+      h2{
+        text-align:center; color:black; background-color:greenyellow;
+      }
+      h3{
+        text-align:center; color:black; background-color:aliceblue;;
+      }
+      select{
+        color:black; background-color:pink;
+      }
+      input{
+        color:black; background-color:yellow; align-items:center;
+      }
+      button{
+        color:black; background-color:skyblue; align-items:center;
+      }
+    </style>
+
+    <script>
+      function convert() {
+      var x = parseFloat(document.getElementById('tempno').value);
+      var p = document.getElementById('fromtemp').value;
+      var q = document.getElementById('totemp').value;
+      var y,z;
+      if(p=='c' && q=='f'){
+        y=(9*x)/5+32;
+        z=q;
+        document.getElementById('result').value = y;
+    }
+    else if(p=='c' && q=='k'){
+        y=x+273;
+        z=q;
+        document.getElementById('result').value = y;
+    }
+    else if(p=='f' && q=='c'){
+        y=(5*x-160)/9;
+        z=q;
+        document.getElementById('result').value = y;
+    }
+    else if(p=='f' && q=='k'){
+        y=(5*x+2297)/9;
+        z=q;
+        document.getElementById('result').value = y;
+    }
+    else if(p=='k' && q=='c'){
+        y=x-273;
+        z=q;
+        document.getElementById('result').value = y;
+    }
+    else if(p=='k' && q=='f'){
+        y=(9*x-2457)/5+32;
+        z=q;
+        document.getElementById('result').value = y;
+    }
+    else{
+      document.write("An Error Occurred!!! TRY AGAIN !!!");
+    }
+  }
+    </script>
+    <div class="converter">
+    <h2>
+      Enter your Temperatue to Convert:-
+    </h2>
+    <br>
+    <h3>Welcome to Parthib's Temperature Converter
+    <form>
+      <label for="tempno">
+        <input type="number" id="tempno" placeholder="Enter Temperature"></label>
+      <p><b><label for="fromtemp">Convert From</b></p>
+      <select id="fromtemp">
+        <option value="c">Celcius</option>
+        <option value="f">Farhenheit</option>
+        <option value="k">Kelvin</option>
+      </select>
+      <P><b>Convert Into</b></P>
+      <label for="totemp">
+      <select id="totemp">
+      <option value="c">Celcius</option>
+        <option value="f">Farhenheit</option>
+        <option value="k">Kelvin</option>
+      </select><br><br>
+      <button onclick="convert()">Convert</button>
+      <p>The Converted Temperature is : </p>
+      <label for="result">Result:</label>
+      <input type="text" id="result" readonly></div>
+    </form>
+    </h3>
+  </body>
+</html>
